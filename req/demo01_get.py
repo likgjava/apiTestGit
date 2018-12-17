@@ -31,11 +31,7 @@ import requests
 # print("headers=", response.headers)  # 头信息
 
 
-# response = requests.get("http://www.baidu.com", cookies={"c1": "v1"})
-# print(response.cookies)
-# print(response.cookies["BDORZ"])
-# print(len(response.cookies))
-# print(response.text)
+
 
 
 requests.get('http://www.google.com')
