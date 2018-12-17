@@ -2,13 +2,13 @@
 import pymysql
 
 # 创建数据库连接
-conn = pymysql.connect("localhost", "root", "root", "stu")
+conn = pymysql.connect("localhost", "root", "root", "books", autocommit=True)
 
 # 创建游标对象
 cursor = conn.cursor()
 
-# 执行操作：把学生姓名为‘李白’的年龄改成20岁
-sql = "update student set age=20 where name='李白'"
+# 执行操作：把图书名称为‘西游记’的阅读量加一
+sql = "update t_book set `read`=`read`+1 where title='西游记'"
 cursor.execute(sql)
 
 # 关闭游标对象

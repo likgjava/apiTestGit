@@ -2,7 +2,7 @@
 import pymysql
 
 # 创建数据库连接
-conn = pymysql.connect("localhost", "root", "root", "stu")
+conn = pymysql.connect("localhost", "root", "root", "books")
 
 # 创建游标对象
 cursor = conn.cursor()
