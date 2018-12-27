@@ -7,7 +7,7 @@ class DBUtil:
     @classmethod
     def get_conn(cls):
         if DBUtil._conn is None:
-            cls._conn = pymysql.connect("localhost", "root", "root", "ifautotest")
+            cls._conn = pymysql.connect("localhost", "root", "root", "books")
         return cls._conn
 
     @classmethod
