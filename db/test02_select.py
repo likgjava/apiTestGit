@@ -1,30 +1,36 @@
-# 导包
+# 1.导包
 import pymysql
 
-# 创建数据库连接
+# 2.创建数据库连接
+# 连接到数据库（host:localhost username:root password:root database:books）
 conn = pymysql.connect("localhost", "root", "root", "books")
 
-# 创建游标对象
+# 3.获取游标对象
 cursor = conn.cursor()
 
-# 执行操作：查询全部的图书数据
-cursor.execute("select * from t_book")
+# 4.执行操作
+# 2).查询图书表的数据（包括：图书id、图书名称、阅读量、评论量）
+sql = "SELECT t.id,t.title,t.`read`,t.`comment` from t_book t"
+cursor.execute(sql)
 
-# 获取查询结果的总记录数
-print("rowcount=", cursor.rowcount)
+# 3).获取查询结果的总记录数
+rowcount = cursor.rowcount
+print("总记录数=", rowcount)
 
-# 获取下一条数据
-one = cursor.fetchone()
-print("one=", one)
+# 4).获取查询结果的第一条数据
+# first = cursor.fetchone()
+# print("first=", first)
 
-# 获取所有行
-book_list = cursor.fetchall()
-print("book_list=", book_list)
-for book in book_list:
-    print("book=", book)
+# 5).获取全部的查询结果
+data_list = cursor.fetchall()
+print("data_list=", data_list)
 
-# 关闭游标对象
+for book in data_list:
+    id, title, read, comment = book
+    print("id={} title={} read={} comment={}".format(id, title, read, comment))
+
+# 5.关闭游标
 cursor.close()
 
-# 关闭数据库连接
+# 6.关闭数据库连接
 conn.close()

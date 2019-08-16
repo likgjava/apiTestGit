@@ -1,18 +1,23 @@
-# 导包
+# 1.导包
 import pymysql
 
-# 创建数据库连接
+# 2.创建数据库连接
 conn = pymysql.connect("localhost", "root", "root", "books", autocommit=True)
 
-# 创建游标对象
+# 3.获取游标对象
 cursor = conn.cursor()
 
-# 执行操作：把图书名称为‘西游记’的阅读量加一
-sql = "update t_book set `read`=`read`+1 where title='西游记'"
+# 4.执行操作
+# 把图书名称为‘西游记’的阅读量加一
+# sql = "UPDATE t_book SET `read`=`read`+1 WHERE title='西游记'"
+sql = "UPDATE t_book SET `read`=`read`+1"
 cursor.execute(sql)
 
-# 关闭游标对象
+rowcount = cursor.rowcount
+print("rowcount=", rowcount)
+
+# 5.关闭游标
 cursor.close()
 
-# 关闭数据库连接
+# 6.关闭数据库连接
 conn.close()
