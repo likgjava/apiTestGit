@@ -15,5 +15,6 @@ data = {
 response = requests.post(url, data=data)
 
 # 3.获取响应数据
+print("response.url=", response.url)
 print("text=", response.text)
 print("text=", response.json())
