@@ -10,9 +10,9 @@ import requests
 url = "http://182.92.81.159/api/sys/login"
 data = '{"mobile":"13800000002", "password":"123456"}'
 headers = {"Content-Type": "application/json"}
-# response = requests.post(url, data=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 
-response = requests.post(url, json={"mobile":"13800000002", "password":"123456"})
+# response = requests.post(url, json={"mobile":"13800000002", "password":"123456"})
 
 # 3.获取响应数据
 print("json data=", response.json())

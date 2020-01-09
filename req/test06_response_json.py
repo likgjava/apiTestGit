@@ -5,8 +5,8 @@
 import requests
 
 # 2.发送请求
-# response = requests.get("http://www.weather.com.cn/data/sk/101010100.html")
-response = requests.get("http://www.baidu.com")
+response = requests.get("http://www.weather.com.cn/data/sk/101010100.html")
+# response = requests.get("http://www.baidu.com")
 
 # 3.获取响应数据
 json_data = response.json()
