@@ -7,9 +7,13 @@ import requests
 # 2.发送请求
 response = requests.get("http://www.weather.com.cn/data/sk/101010100.html")
 # response = requests.get("http://www.baidu.com")
-
+print("encoding=", response.encoding)
+response.encoding = "UTF-8"
+print("encoding=", response.encoding)
 # 3.获取响应数据
 json_data = response.json()
+
+print("encoding=", response.encoding)
 print("data type=", type(json_data))
 print("json_data=", json_data)
 
